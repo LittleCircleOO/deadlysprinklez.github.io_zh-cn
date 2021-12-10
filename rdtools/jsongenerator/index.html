@@ -56,31 +56,31 @@
 			<table>
 				<tr>
 					<td>
-						<b>NAME:</b>
+						<b>表情名称:</b>
 						<span class="expressionName">
 							Something broke.
 						</span>
 						<br>
-						<b>FRAMES:</b>
+						<b>帧总数:</b>
 						<span class="expressionFrames"></span>
 						<br>
-						<b>FPS:</b>
+						<b>动画速率:</b>
 						<span class="expressionFramerate"></span>
 						<br>
-						<b>LOOP:</b>
+						<b>循环模式:</b>
 						<span class="expressionLoop"></span>
 					</td>
 					<td style="text-align: right !important">
-						<b>LOOP FRAME:</b>
+						<b>循环起始帧:</b>
 						<span class="expressionLoopFrame"></span>
 						<br>
-						<b>PORTRAIT OFFSET:</b>
+						<b>对话头像偏移:</b>
 						<span class="expressionPortraitOffset"></span>
 						<br>
-						<b>PORTRAIT SIZE:</b>
+						<b>对话头像裁剪:</b>
 						<span class="expressionPortraitSize"></span>
 						<br>
-						<b>PORTRAIT SCALE:</b>
+						<b>对话头像缩放:</b>
 						<span class="expressionPortraitScale"></span>
 					</td>
 				</tr>
@@ -143,7 +143,7 @@
 										<div style="text-align: center">
 											上传一张精灵图或者一个json文件！
 											<span style="display: block; text-align: center"><input type="file" id="fileUpload" style="background-color: #00000030" ></span>
-											这是可选的，但会<i style="text-decoration: underline;">极大地帮助</i>你创建自定义角色！
+											这是可选的，但会 <i style="text-decoration: underline;">极大地</i> 帮助你创建自定义角色！
 											<hr>
 											<span style="color: red">*</span><b>文件名</b>：<input type="text" id="fileName"><span class="hidden autofilledConfirmation"><br>已自动从上传的文件生成了文件名！</span>
 											<span style="display: block; text-align: center"><span style="color:red;font-weight:800">必填项</span>，必须与精灵图的角色名一致。<b>不要填入文件名后缀！</b></span>
@@ -230,12 +230,12 @@
 										<table>
 											<tr>
 												<td style="text-align: center; width: 50%">
-													使用的帧：<br>
+													使用的帧<br>
 													<input type="number" id="rowPrevFrameNumber" min=0 value=0 style="width: 50px"><br>
 													<canvas id="rowPrevFrame"></canvas>
 												</td>
 												<td style="text-align: center; width: 50%">
-													偏移：<br>
+													偏移<br>
 													<input type="number" id="rowPrevOffsetX" value=0 style="width: 50px">, <input type="number" id="rowPrevOffsetY" value=0 style="width: 50px"><br>
 													<span style="font-size: 8pt">（注：调大向左或向下移动，<br>调小向右或向上移动）</span>
 												</td>
@@ -255,7 +255,7 @@
 										<table>
 											<tr>
 												<td>
-													<b>表情列表</b> <span id="expressionExtra" onclick="toggleExpressions()" style="user-select: none; cursor: pointer; text-decoration: underline;">（只显示名字？）</span>
+													<b>表情列表</b> <span id="expressionExtra" onclick="toggleExpressions()" style="user-select: none; cursor: pointer; text-decoration: underline;">（仅显示表情名称？）</span>
 												</td>
 											</tr>
 											<tr>
@@ -278,11 +278,11 @@
 										然后<b>点击</b>以选中一个表情！<br>
 										<br>
 										首先你需要创建四个重要的表情并命名为：<br>
-										<b>neutral</b>、<b>happy</b>、<b>barely</b>，和<b>missed</b>。<br>
+										<b>neutral(无表情)</b>、<b>happy(开心)</b>、<b>barely(勉强)</b>，和<b>missed(失误)</b>。<br>
 										<b style="color: #FF6666">缺失上述任一表情将无法创建自定义角色的JSON文件。</b>
 										<hr>
 										<div id="expressionManager">
-											<b>名字：</b> <input class="expInput" id="expressionNameInput" type="text" value="" disabled><br>
+											<b>表情名称：</b> <input class="expInput" id="expressionNameInput" type="text" value="" disabled><br>
 											<input class="expInput" type="button" value="移除表情" id="deleteExpression" onclick="removeExpression(event)" disabled>
 										</div>
 										<hr>
@@ -291,38 +291,38 @@
 								</td>
 								<td class="doc t5">
 									<div style="width: 40vw">
-										<span style="display: block">帧图像：<input class="expInput" type="text" id="expFrames" placeholder="例如：0,1,2,3,4,5" disabled></span>
-										<span style="display: block">动画速率（帧每秒）：<input class="expInput" type="number" id="expFPS" min="0" placeholder="0 = 1/4拍" disabled></span>
-										<span style="display: block;">Loop:
+										<span style="display: block">帧图像序列：<input class="expInput" type="text" id="expFrames" placeholder="例如：0,1,2,3,4,5" disabled></span>
+										<span style="display: block">动画速率(帧每秒)：<input class="expInput" type="number" id="expFPS" min="0" placeholder="0 = 1/4拍" disabled></span>
+										<span style="display: block;">循环模式：
 											<form id="loopType">
 												<label>
 													<input class="expInput" type="radio" name="loopType" value="no" checked="checked" disabled>
-													<span class="loopButton">关</span>
+													<span class="loopButton">不循环</span>
 												</label>
 												<label>
 													<input class="expInput" type="radio" name="loopType" value="onBeat" disabled>
-													<span class="loopButton">每拍</span>
+													<span class="loopButton">按节拍循环</span>
 												</label>
 												<label>
 													<input class="expInput" type="radio" name="loopType" value="yes" disabled>
-													<span class="loopButton">持续</span>
+													<span class="loopButton">持续循环</span>
 												</label>
 											</form>
 										</span>
 										<span style="display: block">从第<input class="expInput" type="number" id="expLoopStart" min="0" placeholder="0 = 选中的第一帧" disabled>帧开始循环</span><br>
 										<br>
-										点击开始或停止预览动画！<br>
+										点击下图开始/停止预览 !<br>
 										<canvas id="animationPreview" width=9 height=9>你不应该看见这个的，对吧？ ;)</canvas>
 									</div>
 								</td>
 								<td class="doc t6">
 									<div style="width: 40vw">
 										<span style="font-size: 8pt">（注：调大向左或向上移动，调小向右或向下移动）</span><br>
-										图像偏移：<input class="expInput" type="number" id="expPOffX" placeholder="X偏移(px)" disabled>, <input class="expInput" type="number" id="expPOffY" placeholder="Y偏移(px)" disabled><br>
-										图像长宽：<input class="expInput" type="number" id="expPSizeX" placeholder="宽(px)" disabled> by <input class="expInput" type="number" id="expPSizeY" placeholder="长(px)" disabled><br>
-										图像大小：<input class="expInput" type="number" id="expPScale" placeholder="放大倍数" disabled>x<br>
+										对话头像偏移：<input class="expInput" type="number" id="expPOffX" placeholder="X偏移(px)" disabled> , <input class="expInput" type="number" id="expPOffY" placeholder="Y偏移(px)" disabled><br>
+										对话头像裁剪：<input class="expInput" type="number" id="expPSizeX" placeholder="宽(px)" disabled> x <input class="expInput" type="number" id="expPSizeY" placeholder="长(px)" disabled><br>
+										对话头像缩放：<input class="expInput" type="number" id="expPScale" placeholder="放大倍数" disabled>x<br>
 										<br>
-										点击开始或停止预览动画！
+										点击下图开始/停止预览 !
 										<br>
 										（大致显示，可能不准确）<br>
 										<canvas id="dialoguePreview" width=336 height=42>你也不应该看到这个的！ :O</canvas>
@@ -350,7 +350,7 @@
 							<br><hr>
 							<h4>帧图像</h4>
 							<div id="frameRefs">
-								在<b><i>第一页</i></b>上传精灵图，然后打开帧切割页（&#128247; <b><i>相机</i></b>图案）来启用这个！
+								在<b><i>第一页</i></b>上传精灵图，并在帧切割页（&#128247; <b><i>相机</i></b>图案）切割图片，以便启用帧图像预览！
 							</div>
 						</div>
 					</td>

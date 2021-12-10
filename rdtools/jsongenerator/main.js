@@ -196,7 +196,7 @@ function redrawFrames() {
 	rowPrevFrameNumber.dispatchEvent(changeevent);
 
 	// clear the frame reference
-	frameRefs.innerHTML = "<div class='doc t5'><b><i>你可以点击这些图片来将其加入选择的表情的帧里！</i></b></div><br>";
+	frameRefs.innerHTML = "<div class='doc t5'><b><i>你可以点击这些图片，将其加入所选表情的帧图像序列里！</i></b></div><br>";
 	//add frames to the frame reference
 	let frameHolder = doc.createElement("canvas");
 	frameHolder.width = fX;
@@ -405,7 +405,7 @@ function exportJSON() {
 		names[names.length] = x.name;
 	});
 
-	if (noFrameWarning) warnings += "\n有表情没有任何帧，请返回并检查你的表情。";
+	if (noFrameWarning) warnings += "\n有表情不含任何帧，请返回并检查你的表情。";
 
 	// if the array hadn't passed all of the checks earlier, prime an error
 	if (arr.includes(false)) {
@@ -474,7 +474,7 @@ function toggleExpressions() {
 	}
 	else {
 		doc.styleSheets[0].deleteRule(0);
-		expressionExtra.innerHTML = "（只显示名字？）"
+		expressionExtra.innerHTML = "（仅显示表情名称？）"
 	}
 }
 
