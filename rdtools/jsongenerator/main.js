@@ -196,7 +196,7 @@ function redrawFrames() {
 	rowPrevFrameNumber.dispatchEvent(changeevent);
 
 	// clear the frame reference
-	frameRefs.innerHTML = "<div class='doc t5'><b><i>You can click on these to add the frames to the currently selected expression!</i></b></div><br>";
+	frameRefs.innerHTML = "<div class='doc t5'><b><i>你可以点击这些图片来将其加入选择的表情的帧里！</i></b></div><br>";
 	//add frames to the frame reference
 	let frameHolder = doc.createElement("canvas");
 	frameHolder.width = fX;
@@ -405,20 +405,20 @@ function exportJSON() {
 		names[names.length] = x.name;
 	});
 
-	if (noFrameWarning) warnings += "\n(Tab 5, Anim. Data) One or more expressions don't have any frames! Make sure you're okay with this before you continue.";
+	if (noFrameWarning) warnings += "\n有表情没有任何帧，请返回并检查你的表情。";
 
 	// if the array hadn't passed all of the checks earlier, prime an error
 	if (arr.includes(false)) {
-		if (!arr[0]) errors += "\nYou're missing a \"neutral\" expression!";
-		if (!arr[1]) errors += "\nYou're missing a \"happy\" expression!";
-		if (!arr[2]) errors += "\nYou're missing a \"barely\" expression!";
-		if (!arr[3]) errors += "\nYou're missing a \"missed\" expression!";
-		errors += "\n(Tab 4, Expressions) The \"neutral\", \"happy\", \"barely\", and \"missed\" expressions are required.";
+		if (!arr[0]) errors += "\n你没有\"neutral\"表情！";
+		if (!arr[1]) errors += "\n你没有\"happy\"表情！";
+		if (!arr[2]) errors += "\n你没有\"barely\"表情！";
+		if (!arr[3]) errors += "\n你没有\"missed\"表情！";
+		errors += "\n必须添加表情：\"neutral\"、\"happy\"、\"barely\"，和\"missed\"。";
 	}
 
 	// if the divider warning's still up, prime a warning
 	if ((sheetPreview.width / Number(frameX.value) % 1 != 0 || sheetPreview.height / Number(frameY.value) % 1 != 0) && fileUpload.value != "" && imgUploaded) {
-		warnings += "\n(Tab 2, Frame Data) Spritesheet does not seem evenly divided! Your frames may be a little bit jank.";
+		warnings += "\n精灵图未均分！你可以继续进行，但每帧的图像可能会有些奇怪。";
 	}
 
 	// name warners/errors
@@ -427,21 +427,21 @@ function exportJSON() {
 		// if the first index a name appears is not the same as the *last* index,
 		// that means there's at least ONE duplicate name in here. prime a warn!
 		if (namesStr.indexOf(i) != namesStr.lastIndexOf(i)) {
-			warnings += "\n(Tab 4, Expressions) Some expressions share the same name as each other! Only the expressions named first in the list will be used.";
+			warnings += "\n一些表情拥有相同的名字，只有第一个添加的将会导出。";
 			break;
 		}
 	}
-	if (names.includes("")) errors += "\n(Tab 4, Expressions) One or more expressions don't have a name! Make sure you name all your expressions.";
+	if (names.includes("")) errors += "\n有未命名的表情，请返回并检查你的表情。";
 
 
 	if (errors != "") {
 		// if there are errors, stop the user from moving on
-		window.alert("Oops - some things are out of place!\n\nERRORS:" + errors + "\n\nWARNINGS:" + (warnings == "" ? "\nNone" : warnings) + "\n\nUnfortunately, since there were errors present, you cannot continue. Make sure to go back and fix them!");
+		window.alert("哎呀，有些内容设置得有问题！\n\n错误：" + errors + "\n\n警告：" + (warnings == "" ? "\n无" : warnings) + "\n\n你必须解决这些错误才能继续。");
 		return null;
 	}
 	else if (warnings != "") {
 		// if there are JUST warnings, ask if the user wants to continue. if not, stop function
-		if (!window.confirm("Oops - some things are out of place!\n\nERRORS:\nNone\n\nWARNINGS:" + warnings + "\n\nYou can still continue, but it's recommended to fix this.\nDo you still want to export?")) return null;
+		if (!window.confirm("哎呀，有些内容设置得有问题！\n\n错误:\n无\n\n警告：" + warnings + "\n\n你可以继续，但推荐修复这些问题再继续。\n你想继续导出吗？")) return null;
 	}
 
 	// okay let's actually rewrite the JSONification now
@@ -470,11 +470,11 @@ function toggleExpressions() {
 	expandedExpressions = !expandedExpressions;
 	if (!expandedExpressions) {
 		doc.styleSheets[0].insertRule(".expression :not(.expressionName):not(table):not(tbody):not(tr):not(td) { display: none; visibility: hidden }");
-		expressionExtra.innerHTML = "(show all info?)"
+		expressionExtra.innerHTML = "（显示全部信息？）"
 	}
 	else {
 		doc.styleSheets[0].deleteRule(0);
-		expressionExtra.innerHTML = "(show only names?)"
+		expressionExtra.innerHTML = "（只显示名字？）"
 	}
 }
 
@@ -561,14 +561,14 @@ let spctx = sheetPreview.getContext("2d");
 spctx.fillStyle = "white";
 spctx.textAlign = "center";
 spctx.font = "bold 24px Arial";
-spctx.fillText("Upload a spritesheet!", sheetPreview.width/2, sheetPreview.height/2 - 13)
-spctx.fillText("It'll appear here.", sheetPreview.width/2, sheetPreview.height/2 + 13)
+spctx.fillText("上传一个精灵图！", sheetPreview.width/2, sheetPreview.height/2 - 13)
+spctx.fillText("它将会在这里显示。", sheetPreview.width/2, sheetPreview.height/2 + 13)
 
 // runs on uploading a file
 fileUpload.onchange = (e) => {
 	if (!(e.target.value.endsWith(".png") || e.target.value.endsWith(".json"))) {
 		let filetype = e.target.value.split(".");
-		window.alert("The filetype ." + filetype[filetype.length - 1] + " isn't a compatible filetype! Please use a .png image or a .json file.");
+		window.alert("不支持的文件类型." + filetype[filetype.length - 1] + "。请上传.png图像或.json文件。");
 		return null;
 	}
 	var reader = new FileReader();
@@ -576,7 +576,7 @@ fileUpload.onchange = (e) => {
 		// this doesn't count as an image file
 		// if the user had any expression data inputted, warn that continuing will wipe said data
 		if (expressionArray.length > 0)
-			if (!window.confirm("Hey - if you continue with this .json file, all the data you entered will be wiped.\nAre you sure you're good to continue?")) return null;
+			if (!window.confirm("嘿！如果你使用这个JSON文件继续，你需要从头开始！\n你想要继续吗？")) return null;
 		// then wipe the data
 		expressionArray = [];
 		selExp = null;
@@ -704,7 +704,7 @@ onmousedown = (e) => {
 		}
 		else {
 			// fun fact: by popping up an alert we prevent the onmousemove event!
-			window.alert("Upload a spritesheet to use this!");
+			window.alert("上传精灵图以使用！");
 		}
 	}
 }

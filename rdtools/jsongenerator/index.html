@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_cn">
 <head>
 	<meta charset="utf-8">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="RD Custom Character JSON Generator">
-	<meta property="og:description" content="A JSON Generator made by DeadlySprinklez#4327 for Rhythm Doctor, free for anyone to use.
-Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
+	<meta property="og:title" content="节奏医生自定义角色生成器">
+	<meta property="og:description" content="一个由DeadlySprinklez#4327为节奏医生制作的免费JSON生成器。
+由NoMathExpeatation与LittleCircleOO翻译，欢迎提交翻译问题。
+已在Firefox 88浏览器上测试，程序问题欢迎提交bug给DeadlySprinklez，私信也行！">
 	<meta property="og:url" content="http://deadlysprinklez.github.io/rdtools/jsongenerator">
 	<meta property="og:image" content="http://deadlysprinklez.github.io/rdtools/meta.png">
 	<link rel="stylesheet" href="style.css">
@@ -91,36 +92,36 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 		END OF TEMPLATES
 	-->
 
-	<title>Rhythm Doctor Custom Character JSON Generator</title>
+	<title>节奏医生自定义角色生成器</title>
 </head>
 <body>
 	<div id="main">
 		<div class="page">
-			<h1>Rhythm Doctor Custom Character JSON Generator</h1>
+			<h1>节奏医生自定义角色生成器</h1>
 			<table id="tabsContainer">
 				<tr>
 					<td>
 						<div id="tabs">
 							<span class="tab t1 active">
-								&#128221;<span class="tabName"> - <b>File Upload</b></span>
+								&#128221;<span class="tabName"> - <b>上传文件</b></span>
 							</span>
 							<span class="tab t2">
-								&#128247;<span class="tabName"> - <b>Frame Data</b></span>
+								&#128247;<span class="tabName"> - <b>帧切割</b></span>
 							</span>
 							<span class="tab t3">
-								&#128269;<span class="tabName"> - <b>Row Preview</b></span>
+								&#128269;<span class="tabName"> - <b>预览</b></span>
 							</span>
 							<span class="tab t4">
-								&#128578;<span class="tabName"> - <b>Expressions</b></span>
+								&#128578;<span class="tabName"> - <b>表情</b></span>
 							</span>
 							<span class="tab t5">
-								&#127939;<span class="tabName"> - <b>Anim. Data</b></span>
+								&#127939;<span class="tabName"> - <b>动画</b></span>
 							</span>
 							<span class="tab t6">
-								&#128172;<span class="tabName"> - <b>Dialogue Data</b></span>
+								&#128172;<span class="tabName"> - <b>对话</b></span>
 							</span>
 							<span class="tab t7">
-								&#9989;<span class="tabName"> - <b>Export</b></span>
+								&#9989;<span class="tabName"> - <b>导出</b></span>
 							</span>
 						</div>
 					</td>
@@ -128,64 +129,64 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 				<tr>
 					<td>
 						<div class="doc t1 active">
-							<h4>File Upload</h4>
+							<h4>上传文件</h4>
 							<table>
 								<tr>
 									<td>
 										<div style="text-align: center">
-											<b>Preview image:</b>
+											<b>图片预览：</b>
 											<br>
-											<canvas id="sheetPreview"><span style="color: red; font-weight: 800;">JavaScript is not enabled!</span><br>Please use a<br>JavaScript-compatible<br>browser, or enable<br>JavaScript!</canvas>
+											<canvas id="sheetPreview"><span style="color: red; font-weight: 800;">JavaScript未启用！</span><br>请使用可加载JavaScript的浏览器<br>或启用JavaScript！</canvas>
 										</div>
 									</td>
 									<td>
 										<div style="text-align: center">
-											Upload either a .png file of a spritesheet or a pre-existing .json file here!
+											上传一张精灵图或者一个json文件！
 											<span style="display: block; text-align: center"><input type="file" id="fileUpload" style="background-color: #00000030" ></span>
-											This is optional, but will <i style="text-decoration: underline;">greatly assist</i> in creating your custom character!
+											这是可选的，但会<i style="text-decoration: underline;">极大地帮助</i>你创建自定义角色！
 											<hr>
-											<span style="color: red">*</span><b>Filename</b>: <input type="text" id="fileName"><span class="hidden autofilledConfirmation"><br>Name automatically filled from uploaded file!</span>
-											<span style="display: block; text-align: center">This is <span style="color:red;font-weight:800">required</span>, and must be the same name as the spritesheet file for the character <b>WITHOUT</b> the file type (so don't include the .png)</span>
+											<span style="color: red">*</span><b>文件名</b>：<input type="text" id="fileName"><span class="hidden autofilledConfirmation"><br>已自动从上传的文件生成了文件名！</span>
+											<span style="display: block; text-align: center"><span style="color:red;font-weight:800">必填项</span>，必须与精灵图的角色名一致。<b>不要填入文件名后缀！</b></span>
 											<hr>
-											<i>When you're done here, click on the </i>&#128247;<i> <b>camera</b> button at the top, next to where it says <b>File Upload</b>!</i>
+											<i>填好名字后，点击顶部的</i>&#128247;<i> <b>相机</b>图标（就在<b>上传文件</b>的旁边）。</i>
 										</div>
 									</td>
 								</tr>
 							</table>
 						</div>
 						<div class="doc t2">
-							<h4>Frame Data</h4>
+							<h4>帧切割</h4>
 							<table>
 								<tr>
 									<td>
 										<div style="text-align: center">
-											<b>Click and drag</b> the marker until the grid lines evenly divide your spritesheet!
+											<b>拖动</b>红色的标记直到这些线均匀分割每帧图片！
 											<br>
 											<div id="sheetDivHolder">
 												<canvas id="sheetDivider"></canvas>
 											</div><br>
-											Zoom: <input type="number" id="sheetDividerZoom" max="8" min="1" value="1" style="width: 50px">x
+											放大倍率：<input type="number" id="sheetDividerZoom" max="8" min="1" value="1" style="width: 50px">x
 										</div>
 									</td>
 									<td>
 										<div style="text-align: center">
-											You can also fine tune the marker's position until it looks right!<br>
-											<input type="number" id="frameX" placeholder="Marker X" min="1" value="9">, <input type="number" id="frameY" placeholder="Marker Y" min="1" value="9"><br>
-											<input type="button" onclick="//detectSlices() - NYI" value="Estimate for me! (NOT YET IMPLEMENTED)" disabled><br>
-											<span class="warning hidden"><b>Warning:</b> Spritesheet does not seem evenly divided!<br>You can continue, but your frames may be a little bit jank.</span>
+											你也可以在下面精确调节标记的坐标！<br>
+											<input type="number" id="frameX" placeholder="标记X坐标" min="1" value="9">, <input type="number" id="frameY" placeholder="标记Y坐标" min="1" value="9"><br>
+											<input type="button" onclick="//detectSlices() - NYI" value="估算（尚未实现）" disabled><br>
+											<span class="warning hidden"><b>警告！</b>精灵图未均分！<br>你可以继续进行，但每帧的图像可能会有些奇怪。</span>
 										</div>
 									</td>
 								</tr>
 							</table>
 						</div>
 						<div class="doc t3">
-							<h4>Row Preview</h4>
+							<h4>预览</h4>
 							<table>
 								<tr>
 									<td>
 										<div style="text-align: center">
-											<b>In-Game Approximation</b><br>
-											You can also <b>click and drag</b> here to move the preview!<br>
+											<b>行图片预览</b><br>
+											你可以<b>拖动图片</b>来调节显示！<br>
 											<canvas id="rowPrevPreview" width=184 height=152></canvas>
 										</div>
 									</td>
@@ -210,7 +211,7 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 											<table style="display: inline-block; text-align: left; width: 50%; position: relative; top: 25px">
 												<tr>
 													<td>
-														<span>Show a portrait of the character</span>
+														<span>显示角色图</span>
 													</td>
 												</tr>
 												<tr>
@@ -220,7 +221,7 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 												</tr>
 												<tr>
 													<td>
-														<span>Show the file's name</span>
+														<span>显示文件名</span>
 													</td>
 												</tr>
 											</table>
@@ -229,14 +230,14 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 										<table>
 											<tr>
 												<td style="text-align: center; width: 50%">
-													Frame to use:<br>
+													使用的帧：<br>
 													<input type="number" id="rowPrevFrameNumber" min=0 value=0 style="width: 50px"><br>
 													<canvas id="rowPrevFrame"></canvas>
 												</td>
 												<td style="text-align: center; width: 50%">
-													Offset:<br>
+													偏移：<br>
 													<input type="number" id="rowPrevOffsetX" value=0 style="width: 50px">, <input type="number" id="rowPrevOffsetY" value=0 style="width: 50px"><br>
-													<span style="font-size: 8pt">(Note: going positive moves left and down respectively,<br>going negative moves right and up respectively)</span>
+													<span style="font-size: 8pt">（注：调大向左或向下移动，<br>调小向右或向上移动）</span>
 												</td>
 											</tr>
 										</table>
@@ -244,9 +245,9 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 								</tr>
 							</table>
 						</div>
-						<div class="doc t4"><h4>Expressions</h4></div>
-						<div class="doc t5"><h4>Animation Data</h4></div>
-						<div class="doc t6"><h4>Dialogue Data</h4></div>
+						<div class="doc t4"><h4>表情</h4></div>
+						<div class="doc t5"><h4>动画</h4></div>
+						<div class="doc t6"><h4>对话</h4></div>
 						<table class="doc t4 t5 t6" style="vertical-align: middle;">
 							<tr>
 								<td>
@@ -254,7 +255,7 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 										<table>
 											<tr>
 												<td>
-													<b>Expression List</b> <span id="expressionExtra" onclick="toggleExpressions()" style="user-select: none; cursor: pointer; text-decoration: underline;">(show only names?)</span>
+													<b>表情列表</b> <span id="expressionExtra" onclick="toggleExpressions()" style="user-select: none; cursor: pointer; text-decoration: underline;">（只显示名字？）</span>
 												</td>
 											</tr>
 											<tr>
@@ -269,73 +270,73 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 								</td>
 								<td class="doc t4">
 									<div style="width: 40vw">
-										<b>Hey!</b><br>
-										This is the one place where you can modify expression names, or add and remove expressions.<br>
-										Need to manage expressions? <b>Come back to this tab</b>.<br>
+										<b>嗨！</b><br>
+										你可以在这里添加、修改、移除表情！<br>
+										需要管理表情的时候<b>请回到这个页面</b>。<br>
 										<br>
-										<b>Click on the green plus (+) button</b> to create an expression,<br>
-										then <b>click on an expression</b> to select it!<br>
+										<b>点击绿色的+号按钮</b>创建表情，<br>
+										然后<b>点击</b>以选中一个表情！<br>
 										<br>
-										To start off, you need to have four important expressions,<br>
-										one of each named <b>neutral</b>, <b>happy</b>, <b>barely</b>, and <b>missed</b>.<br>
-										<b style="color: #FF6666">You will not be able to generate your JSON file without these.</b>
+										首先你需要创建四个重要的表情并命名为：<br>
+										<b>neutral</b>、<b>happy</b>、<b>barely</b>，和<b>missed</b>。<br>
+										<b style="color: #FF6666">缺失上述任一表情将无法创建自定义角色的JSON文件。</b>
 										<hr>
 										<div id="expressionManager">
-											<b>NAME:</b> <input class="expInput" id="expressionNameInput" type="text" value="" disabled><br>
-											<input class="expInput" type="button" value="Delete Selected Expression" id="deleteExpression" onclick="removeExpression(event)" disabled>
+											<b>名字：</b> <input class="expInput" id="expressionNameInput" type="text" value="" disabled><br>
+											<input class="expInput" type="button" value="移除表情" id="deleteExpression" onclick="removeExpression(event)" disabled>
 										</div>
 										<hr>
-										Once you're done here, <i>click on the <b>running person</b></i> &#127939; <i>icon to move on.</i>
+										完成表情创建后，<i>点击<b>奔跑的人</b></i> &#127939; <i>的标志继续。</i>
 									</div>
 								</td>
 								<td class="doc t5">
 									<div style="width: 40vw">
-										<span style="display: block">Frames: <input class="expInput" type="text" id="expFrames" placeholder="ex. 0,1,2,3,4,5" disabled></span>
-										<span style="display: block">Animation Speed (FPS): <input class="expInput" type="number" id="expFPS" min="0" placeholder="0 = quarter beat" disabled></span>
+										<span style="display: block">帧图像：<input class="expInput" type="text" id="expFrames" placeholder="例如：0,1,2,3,4,5" disabled></span>
+										<span style="display: block">动画速率（帧每秒）：<input class="expInput" type="number" id="expFPS" min="0" placeholder="0 = 1/4拍" disabled></span>
 										<span style="display: block;">Loop:
 											<form id="loopType">
 												<label>
 													<input class="expInput" type="radio" name="loopType" value="no" checked="checked" disabled>
-													<span class="loopButton">Off</span>
+													<span class="loopButton">关</span>
 												</label>
 												<label>
 													<input class="expInput" type="radio" name="loopType" value="onBeat" disabled>
-													<span class="loopButton">On beat</span>
+													<span class="loopButton">每拍</span>
 												</label>
 												<label>
 													<input class="expInput" type="radio" name="loopType" value="yes" disabled>
-													<span class="loopButton">At end</span>
+													<span class="loopButton">持续</span>
 												</label>
 											</form>
 										</span>
-										<span style="display: block">Loop Start Frame: <input class="expInput" type="number" id="expLoopStart" min="0" placeholder="0 = first of Frames" disabled></span><br>
+										<span style="display: block">从第<input class="expInput" type="number" id="expLoopStart" min="0" placeholder="0 = 选中的第一帧" disabled>帧开始循环</span><br>
 										<br>
-										Click to start/stop an animation preview!<br>
-										<canvas id="animationPreview" width=9 height=9>You're not supposed to see this at all ;)</canvas>
+										点击开始或停止预览动画！<br>
+										<canvas id="animationPreview" width=9 height=9>你不应该看见这个的，对吧？ ;)</canvas>
 									</div>
 								</td>
 								<td class="doc t6">
 									<div style="width: 40vw">
-										<span style="font-size: 8pt">(Note: going positive moves left and up respectively, going negative moves right and down respectively)</span><br>
-										Portrait Offset: <input class="expInput" type="number" id="expPOffX" placeholder="Offset X (px)" disabled>, <input class="expInput" type="number" id="expPOffY" placeholder="Offset Y (px)" disabled><br>
-										Portrait Size: <input class="expInput" type="number" id="expPSizeX" placeholder="Width (px)" disabled> by <input class="expInput" type="number" id="expPSizeY" placeholder="Height (px)" disabled><br>
-										Portrait Scale: <input class="expInput" type="number" id="expPScale" placeholder="Scale (multiplier)" disabled>x<br>
+										<span style="font-size: 8pt">（注：调大向左或向上移动，调小向右或向下移动）</span><br>
+										图像偏移：<input class="expInput" type="number" id="expPOffX" placeholder="X偏移(px)" disabled>, <input class="expInput" type="number" id="expPOffY" placeholder="Y偏移(px)" disabled><br>
+										图像长宽：<input class="expInput" type="number" id="expPSizeX" placeholder="宽(px)" disabled> by <input class="expInput" type="number" id="expPSizeY" placeholder="长(px)" disabled><br>
+										图像大小：<input class="expInput" type="number" id="expPScale" placeholder="放大倍数" disabled>x<br>
 										<br>
-										Click to start/stop an animation preview!
+										点击开始或停止预览动画！
 										<br>
-										(APPROXIMATION ONLY, MAY NOT BE ACCURATE)<br>
-										<canvas id="dialoguePreview" width=336 height=42>You're also not supposed to see this! :O</canvas>
+										（大致显示，可能不准确）<br>
+										<canvas id="dialoguePreview" width=336 height=42>你也不应该看到这个的！ :O</canvas>
 									</div>
 								</td>
 							</tr>
 						</table>
 						<div class="doc t7" style="user-select: none">
-							<h4>Finalize + Export</h4>
-							<b>Before you export,</b> make sure you go back and make sure everything is correct.<br>
+							<h4>导出</h4>
+							<b>在你导出前，</b>确保你设置好了所有的内容！<br>
 							<br>
 							<span id="exportButton" onclick="exportJSON()">
 								<br>
-								<b>Everything looks good, let's export!</b>
+								<b>感觉良好，开导！</b>
 							</span>
 							<br>
 							<br>
@@ -347,9 +348,9 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 						</div>
 						<div class="doc t3 t4 t5 t6" id="frameReferenceHolder">
 							<br><hr>
-							<h4>Frame Reference</h4>
+							<h4>帧图像</h4>
 							<div id="frameRefs">
-								Upload a spritesheet in <b><i>the first tab</i></b>, then visit the &#128247; <b><i>camera</i></b> (Frame Data) tab to enable this!
+								在<b><i>第一页</i></b>上传精灵图，然后打开帧切割页（&#128247; <b><i>相机</i></b>图案）来启用这个！
 							</div>
 						</div>
 					</td>
@@ -394,8 +395,9 @@ Tested in Firefox 88, report bugs to DeadlySprinklez - DMs open!">
 	-->
 	<div id="helpMenu">
 		<div class="page">
-			<h1>Help</h1>
-			TODO: Pending rewrite
+			<h1>帮助</h1>
+			（注：此教程已过期）
+			待办：重写教程
 			<br><br>
 			<div id="contents">
 				<b>Jump To:</b><br>
