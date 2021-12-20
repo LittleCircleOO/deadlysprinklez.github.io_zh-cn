@@ -298,9 +298,12 @@ function saveExpression(justWriteToElements = false) {
 	selEl.querySelector(".expressionFramerate").innerHTML = exp.fps;
 	selEl.querySelector(".expressionLoop").innerHTML = loopType.querySelector("*[value=\"" + exp.loop + "\"]").nextElementSibling.innerHTML;
 	selEl.querySelector(".expressionLoopFrame").innerHTML = "" + exp.loopStart + " (" + (exp.frames[exp.loopStart] == undefined ? "err" : exp.frames[exp.loopStart]) + ")";
-	selEl.querySelector(".expressionPortraitOffset").innerHTML = exp.portraitOffset.toString();
-	selEl.querySelector(".expressionPortraitSize").innerHTML = exp.portraitSize.toString();
-	selEl.querySelector(".expressionPortraitScale").innerHTML = exp.portraitScale + "x";
+	if (exp.portraitOffset)
+		selEl.querySelector(".expressionPortraitOffset").innerHTML = exp.portraitOffset.toString();
+	if (exp.portraitSize)
+		selEl.querySelector(".expressionPortraitSize").innerHTML = exp.portraitSize.toString();
+	if (exp.portraitScale)
+		selEl.querySelector(".expressionPortraitScale").innerHTML = exp.portraitScale + "x";
 }
 
 function changeToExpression(e) {
@@ -349,12 +352,19 @@ function changeToExpression(e) {
 	expFrames.value = selExion.frames.toString();
 	expFPS.value = selExion.fps;
 	expLoopStart.value = selExion.loopStart;
-	expPOffX.value = selExion.portraitOffset[0];
-	expPOffY.value = selExion.portraitOffset[1];
-	expPSizeX.value = selExion.portraitSize[0];
-	expPSizeY.value = selExion.portraitSize[1];
-	expPScale.value = selExion.portraitScale;
-	loopType.querySelector("*[value=\"" + selExion.loop + "\"]").click();
+	if (selExion.portraitOffset) {
+		expPOffX.value = selExion.portraitOffset[0];
+		expPOffY.value = selExion.portraitOffset[1];
+	}
+	if (selExion.portraitSize) {
+		expPSizeX.value = selExion.portraitSize[0];
+		expPSizeY.value = selExion.portraitSize[1];
+	}
+	if (selExion.portraitScale)
+		expPScale.value = selExion.portraitScale;
+	if (selExion.loop)
+		loopType.querySelector("*[value=\"" + selExion.loop + "\"]").click();
+	else loopType.querySelector("*[value=\"no\"]").click();
 }
 
 
